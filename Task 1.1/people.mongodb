@@ -1,0 +1,27 @@
+// MongoDB Playground
+// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
+// Make sure you are connected to enable completions and to be able to run a playground.
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+// Select the database to use.
+use('peopleTest');
+
+// The drop() command destroys all data from a collection.
+// Make sure you run it against the correct database and collection.
+db.people.drop();
+
+// Insert a few documents into the people collection.
+db.people.insertMany([
+  { '_id': 1, 'username': 'NGUYEN VAN A', 'email': 'nva@gmail.com', 'birthdate': new Date('1993-03-01') },
+  { '_id': 2, 'username': 'TRAN THI B', 'email': 'ttb@gmail.com', 'birthdate': new Date('1998-03-01') },
+  { '_id': 3, 'username': 'PHAM VAN C', 'email': 'pvc@gmail.com', 'birthdate': new Date('1987-03-15') },
+  { '_id': 4, 'username': 'LE THANH D', 'email': 'ltd@gmail.com', 'birthdate': new Date('1989-04-04') },
+  { '_id': 5, 'username': 'TA NGOC E', 'email': 'tne@gmail.com', 'birthdate': new Date('1990-04-04') },
+  { '_id': 6, 'username': 'LE THAI F', 'email': 'ltf@gmail.com', 'birthdate': new Date('1991-06-04') },
+  { '_id': 7, 'username': 'LAM THANH G', 'email': 'ltg@gmail.com', 'birthdate': new Date('1994-09-10') },
+]);
+
+// Run a find command to view all people.
+db.people.find(({username: {$regex : /LE/i}})).pretty();
+
+
